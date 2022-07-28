@@ -5,14 +5,15 @@ Flask==1.1.4
 Flask-Cors==3.0.10
 flask-talisman==1.0.0
 flask-wtf<=0.15
+httpx >=0.20
 idna==3.3
 importlib-metadata==4.8.3
 itsdangerous==1.1.0
 Jinja2==2.11.3
-MarkupSafe==2.0.0
+MarkupSafe<2.0.0
 requests==2.27.1
 six==1.16.0
 SQLAlchemy<1.4.0
 urllib3==1.26.11
-Werkzeug==0.16.1
+Werkzeug==1.0.1
 zipp==3.6.0
