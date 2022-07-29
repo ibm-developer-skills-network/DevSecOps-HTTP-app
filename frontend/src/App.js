@@ -1,7 +1,6 @@
 import logo from "./logo.svg";
 import "./App.css";
-import React, { useState } from "react";
-import axios from "axios";
+import React from "react";
 import Data from "./components/data";
 
 function App() {

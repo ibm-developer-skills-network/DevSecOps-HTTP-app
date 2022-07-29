@@ -1,25 +1,53 @@
-import axios from "axios";
 import React, { useState } from "react";
 import { useEffect } from "react";
 
 const Data = () => {
-  const [data, setData] = useState();
-  const [error, setError] = useState();
+  const [data, setData] = useState([]);
+  const [error, setError] = useState("");
   try {
     useEffect(() => {
-      const { data: raw } = fetch("http://127.0.0.1:5000/serve")
-        .then((response) => response.json())
-        .then((data) => setData(data))
-        .catch((error) => {
-          console.error("There was an error!", error.message);
-          setError(error.message);
-        });
-      // setData(raw);
+      const fetchData = async () => {
+        const rawData = await fetch("http://127.0.0.1:5000/serve").catch(
+          (error) => {
+            console.error("There was an error!", error.message);
+            setError(error.message);
+          }
+        );
+        const response = await rawData.json();
+        setData(response);
+        console.log(response);
+      };
+      fetchData();
     }, []);
   } catch (ex) {
     console.log(ex);
   }
-  const response = error ? <p>{error}</p> : <p>Data Successfully retrieved!</p>;
+  const table = (
+    <>
+      <p>Data Successfully retrieved!</p>
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Post Body</th>
+          </tr>
+        </thead>
+        <tbody>
+          {data.map((item) => (
+            <tr key={item.id}>
+              <td>{item.id}</td>
+              <td>{item.name.slice(0, 10)}</td>
+              <td>{item.email}</td>
+              <td>{item.body.slice(0, 20)}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </>
+  );
+  const response = error ? <p>{error}</p> : table;
   return <>{response}</>;
 };
 
