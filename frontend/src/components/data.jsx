@@ -7,15 +7,16 @@ const Data = () => {
   try {
     useEffect(() => {
       const fetchData = async () => {
-        const rawData = await fetch("http://127.0.0.1:5000/serve").catch(
-          (error) => {
+        const rawData = await fetch("http://127.0.0.1:5000/serve")
+          .then((data) => data.json())
+          .then((response) => {
+            setData(response);
+            console.log(response);
+          })
+          .catch((error) => {
             console.error("There was an error!", error.message);
             setError(error.message);
-          }
-        );
-        const response = await rawData.json();
-        setData(response);
-        console.log(response);
+          });
       };
       fetchData();
     }, []);

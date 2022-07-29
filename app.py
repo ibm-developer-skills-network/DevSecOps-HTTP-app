@@ -9,7 +9,7 @@ csp = {
     'default-src': '\'self\''
 }
 # talisman = Talisman(app, content_security_policy=csp)
-CORS(app, resources={"/*": {"origins": "http://localhost:3000"}})
+# CORS(app, resources={"/*": {"origins": "http://localhost:3000"}})
 
 app.secret_key = os.getenv('SECRET_KEY', 'secret string')
 
