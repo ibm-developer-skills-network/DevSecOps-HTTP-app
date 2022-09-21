@@ -21,7 +21,7 @@ def index():
     return (jsonify(name="Data Retrieval Service", version="1.0"), 200)
 
 
-@app.route('/posts')
+@app.route("/posts", methods=["GET"])
 def serve_data():
     """Returns forum post data"""
     data = PostFactory.generate(5)
