@@ -7,7 +7,7 @@ const Data = () => {
   try {
     useEffect(() => {
       const fetchData = async () => {
-        const rawData = await fetch("http://127.0.0.1:5000/serve")
+        const rawData = await fetch("http://127.0.0.1:5000/posts")
           .then((data) => data.json())
           .then((response) => {
             setData(response);

@@ -1,4 +1,4 @@
-Flask
-Faker
-Flask-Cors
-flask-talisman
+Flask==2.2.2
+Faker==14.2.0
+Flask-Cors==3.0.10
+flask-talisman==1.0.0
