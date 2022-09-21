@@ -1,45 +1,27 @@
-# Flask Examples
+# DevSecOps HTTP Application
 
-Example applications for Flask beginners.
+[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
+[![Python 3.6](https://img.shields.io/badge/Python-3.6-green.svg)](https://shields.io/)
 
-## Installation
+This repository contains the practice code for the **Code Practices** lab in the Coursera.org course [**IBM-CD0267EN-SkillsNetwork Application Security and Monitoring**](https://www.coursera.org/learn/application-security-and-monitoring)
 
-First, you need to clone this repository:
+## Contents
 
-```bash
-$ git clone git@github.com:greyli/flask-examples.git
-```
+This lab contains a Python Flask backend with a React frontend. It demonstrates the use of **Flask-CORS** to remediate Cross Origin Resource Sharing (CORS) vulnerabilities and **Flask-Talisman** for creating secure HTTP headers.
 
-Or:
+## Authors
 
-```bash
-$ git clone https://github.com/helloflask/flask-examples.git
-```
-
-Now, we will need to create a virtual environment and install all the dependencies:
-
-```bash
-$ python3 -m venv venv  # on Windows, use "python -m venv venv" instead
-$ . venv/bin/activate  # on Windows, use "venv\Scripts\activate" instead
-$ pip install -r requirements.txt
-```
-
-## How to Run a Specific Example Application?
-
-**Before run a specific example application, make sure you have activated the virtual environment.**
-
-You can run HTTP application like this:
-
-```bash
-$ flask run
-```
-
-The applications will always running on http://localhost:5000.
-
-## Contributions
-
-Cloned from `https://github.com/helloflask/flask-examples`, thanks to Grey Li for creating the template code.
+[Richard Ye](https://www.linkedin.com/in/richard-ye)  
+[John J. Rofrano](https://www.coursera.org/instructor/johnrofrano) Senior Technical Staff Member, DevOps Champion, @ IBM Research  
 
 ## License
 
-This project is licensed under the MIT License (see the `LICENSE` file for details).
+Copyright (c) IBM Corporation. All rights reserved.
+
+Licensed under the Apache License. See [LICENSE](LICENSE)
+
+This repo is part of the Coursera.org course [IBM-CD0267EN-SkillsNetwork Application Security and Monitoring](https://www.coursera.org/learn/application-security-and-monitoring/)
+
+---
+
+## <h3 align="center"> © IBM Corporation 2022. All rights reserved. <h3/>

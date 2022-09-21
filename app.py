@@ -1,31 +1,28 @@
-import os
-import requests
-from flask import Flask, request, abort, jsonify
+from flask import Flask, jsonify
 from flask_cors import CORS
 from flask_talisman import Talisman
+from post_factory import PostFactory
 
 app = Flask(__name__)
-app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
 
 csp = {
     'default-src': '\'self\''
 }
 # talisman = Talisman(app, content_security_policy=csp)
-# CORS(app, resources={"/*": {"origins": "http://localhost:3000"}})
 
-@app.route('/')
-@app.route('/hello')
-def hello():
-    response = '<h1>Hello, human!</h1>'
-    return response
+# Enable Cross Origin Resource Sourcing (CORS) policies
+CORS(app, resources={"/*": {"origins": "http://localhost:3000"}})
 
-# 404
-@app.route('/404')
-def not_found():
-    abort(404)
 
-@app.route('/serve')
-def serve_data():
-    raw = requests.get('https://jsonplaceholder.typicode.com/posts/1/comments')
-    data = raw.json()
+@app.route("/")
+def index():
+    """Root URL response"""
+    app.logger.info("Request for Root URL")
+    return (jsonify(name="Data Retrieval Service", version="1.0"), 200)
+
+
+@app.route("/posts", methods=["GET"])
+def get_data():
+    """Returns forum post data"""
+    data = PostFactory.generate(5)
     return jsonify(data)
