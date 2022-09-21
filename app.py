@@ -22,7 +22,7 @@ def index():
 
 
 @app.route("/posts", methods=["GET"])
-def serve_data():
+def get_data():
     """Returns forum post data"""
     data = PostFactory.generate(5)
     return jsonify(data)
